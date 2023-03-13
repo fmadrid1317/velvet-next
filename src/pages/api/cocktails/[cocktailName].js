@@ -5,7 +5,9 @@ export default function handler(req, res) {
     console.log("cocktail:", String(Object.values(cocktailName)))
 
     const match = cocktails.find(
-        (cocktail) => String(cocktail.title).toLowerCase() == String(Object.values(cocktailName).toLowerCase()) //need to figure out the lower case situation
+        (cocktail) =>{
+             return String(cocktail.title).toLowerCase() == String(Object.values(cocktailName)).toLocaleLowerCase() //need to figure out the lower case situation
+        }
     );
     console.log("match result", match)
 
