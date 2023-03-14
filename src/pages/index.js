@@ -46,6 +46,16 @@ function InitialPage() {
     })
   }
 
+  const result =cocktailsList.filter(list =>{
+    if(searchInput === ''){
+      return (<Card title="Welcome to Velvet" description="Please search for some " />)
+    }else if(String(list.title).toLowerCase().includes(searchInput.toLowerCase())){
+      return list;
+    }
+  });
+
+  console.log("result:", result)
+
   return (
     <DefaultLayout>
       <div className='bg-white w-full border rounded-md border-gray p-4 shadow'>
@@ -54,16 +64,6 @@ function InitialPage() {
           <button onClick={search} className=' ml-4 bg-red text-white rounded-lg p-2'>Search</button>
         </div>
         <div className=''>
-          {/* {cocktailsList.filter(list =>{
-              if(searchInput === ''){
-                return list
-              }else if(list.title.toLowerCase().includes(searchInput.toLowerCase())){
-                return list
-              }
-            }).map(list =>{
-              <Card title="Welcome to Velvet by Luis" description="Please search for some cocktails"/>
-            })
-          } */}
           <Card title="Welcome to Velvet by Luis" description="Please search for some cocktails"/>
         </div>
       </div>

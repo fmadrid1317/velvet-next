@@ -3,12 +3,16 @@ import Router, { useRouter } from 'next/router';
 import React, { useState, useEffect } from 'react';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
 import Card from '@/components/cards/Card';
+import cocktailsList from "../data/cocktailsList.json"
+
 
 function displayResults() {
     const router = useRouter();
     const { cocktail } = router.query;
     const [property, setProperty] = useState([]);
     const [searchInput, setSearchInput] = useState("");
+
+    console.log("coctail query:", cocktail);
 
 
     // const fetchPropertiesInfo = async () => {
@@ -49,7 +53,7 @@ function displayResults() {
         })
       }
 
-    console.log(property)
+    console.log("property:",property)
 
     return (
         <DefaultLayout>
@@ -59,17 +63,7 @@ function displayResults() {
                     <button onClick={search} className=' ml-4 bg-red text-white rounded-lg p-2'>Search</button>
                 </div>
                 <div className=''>
-                    {/* {cocktailsList.filter(list =>{
-              if(searchInput === ''){
-                return list
-              }else if(list.title.toLowerCase().includes(searchInput.toLowerCase())){
-                return list
-              }
-            }).map(list =>{
-              <Card title="Welcome to Velvet by Luis" description="Please search for some cocktails"/>
-            })
-          } */}
-                    <Card title="Welcome to Velvet by Luis" description="Please search for some cocktails" />
+                    <Card title={property.title} description={property.description}/>
                 </div>
             </div>
         </DefaultLayout>
