@@ -1,13 +1,15 @@
 import Card from '@/components/cards/Card';
 import DefaultLayout from '@/components/layouts/DefaultLayout';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import cocktailsList from "../data/cocktailsList.json"
 import { useRouter } from 'next/router';
+import axios from 'axios';
 
 function InitialPage() {
 
   const [searchInput, setSearchInput] = useState("");
   const router = useRouter();
+  const [property, setProperty] = useState("");
 
   const cocktails = [
     {
@@ -32,6 +34,30 @@ function InitialPage() {
     },
     
 ];
+// const fetchCocktail = async() => {
+//   const options = {
+//     method: 'GET',
+//     url: 'https://the-cocktail-db.p.rapidapi.com/search.php',
+//     params: {s: `${searchInput}`},
+//     headers: {
+//       'X-RapidAPI-Key': 
+//       'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
+//     }
+//   };
+  
+//   axios.request(options).then(function (response) {
+//       console.log(response.data);
+//       setProperty(response.data)
+//   }).catch(function (error) {
+//       console.error(error);
+//   });
+// }
+
+// useEffect(() => {
+
+//   fetchCocktail();
+
+// }, []);
 
   const handleSearch = (event) =>{
     setSearchInput(event.target.value);
@@ -46,21 +72,18 @@ function InitialPage() {
     })
   }
 
-  const result =cocktailsList.filter(list =>{
-    if(searchInput === ''){
-      return (<Card title="Welcome to Velvet" description="Please search for some " />)
-    }else if(String(list.title).toLowerCase().includes(searchInput.toLowerCase())){
-      return list;
+  const handleKeyDown = (event) => {
+    if (event.key === 'Enter') {
+      search();
     }
-  });
+  }
 
-  console.log("result:", result)
 
   return (
     <DefaultLayout>
       <div className='bg-white w-full border rounded-md border-gray p-4 shadow'>
         <div>
-          <input type="text" className="w-1/2 mb-4 pl-4 bg-white  border border-gray text-gray text-md rounded-xl p-2" placeholder='Search here' onChange={handleSearch} value={searchInput}/>
+          <input type="text" className="w-1/2 mb-4 pl-4 bg-white  border border-gray text-gray text-md rounded-xl p-2" placeholder='Search here' onChange={handleSearch} value={searchInput} onKeyDown={handleKeyDown}/>
           <button onClick={search} className=' ml-4 bg-red text-white rounded-lg p-2'>Search</button>
         </div>
         <div className=''>

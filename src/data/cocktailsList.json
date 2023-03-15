@@ -2,27 +2,63 @@
     {
         "id": 1,
         "title":"Whiskey Sour", 
-        "description":"The whiskey sour is a mixed drink containing whiskey, lemon juice, sugar, and optionally, a dash of egg white. It is a type of sour, a mixed drink with a base spirit, citrus juice, and a sweetener."
+        "description":"The whiskey sour is a mixed drink containing whiskey, lemon juice, sugar, and optionally, a dash of egg white. It is a type of sour, a mixed drink with a base spirit, citrus juice, and a sweetener.",
+        "ingredient1":"whiskey",
+        "ingredient2":"lemon juice",
+        "ingredient3":"simple syrup",
+        "measure1":"2 oz",
+        "measure2":"3/4 oz",
+        "measure3":"3/4 oz",
+        "image":"https://www.thecocktaildb.com/images/media/drink/hbkfsh1589574990.jpg"
+
     },
     {
         "id": 2,
         "title":"Negroni", 
-        "description":"A Negroni is an Italian cocktail, made of one part gin, one part vermouth rosso and one part Campari, garnished with orange peel. "
+        "description":"A Negroni is an Italian cocktail, made of one part gin, one part vermouth rosso and one part Campari, garnished with orange peel. ",
+        "ingredient1":"Gin",
+        "ingredient2":"Sweet Vermouth",
+        "ingredient3":"Campari",
+        "measure1":"1 oz",
+        "measure2":"1 oz",
+        "measure3":"1 oz",
+        "image":"https://www.thecocktaildb.com/images/media/drink/qgdu971561574065.jpg"
     },
     {
         "id": 3,
         "title":"Paloma", 
-        "description":"The paloma is a tequila-based cocktail. This drink is most commonly prepared by mixing tequila, lime juice, and a grapefruit-flavored soda such as Fresca, Squirt, or Jarritos and served on the rocks"
+        "description":"The paloma is a tequila-based cocktail. This drink is most commonly prepared by mixing tequila, lime juice, and a grapefruit-flavored soda such as Fresca, Squirt, or Jarritos and served on the rocks",
+        "ingredient1":"",
+        "ingredient2":"",
+        "ingredient3":"",
+        "measure1":"",
+        "measure2":"",
+        "measure3":"",
+        "image":"https://www.thecocktaildb.com/images/media/drink/samm5j1513706393.jpg"
     },
     {
         "id": 4,
         "title":"Jungle Bird", 
-        "description":"A jungle bird cocktail is a tropical drink made with rum, pineapple juice, and Campari."
+        "description":"A jungle bird cocktail is a tropical drink made with rum, pineapple juice, and Campari.",
+        "ingredient1":"",
+        "ingredient2":"",
+        "ingredient3":"",
+        "measure1":"",
+        "measure2":"",
+        "measure3":"",
+        "image":"https://www.thecocktaildb.com/images/media/drink/hbkfsh1589574990.jpg"
     },
     {
         "id": 5,
         "title":"Espresso Martini", 
-        "description":"The espresso martini, also known as a vodka espresso, is a cold caffeinated alcoholic drink made with espresso, coffee liqueur, and vodka."
+        "description":"The espresso martini, also known as a vodka espresso, is a cold caffeinated alcoholic drink made with espresso, coffee liqueur, and vodka.",
+        "ingredient1":"Vodka",
+        "ingredient2":"Coffee Liquor",
+        "ingredient3":"Espresso / Cold Brew",
+        "measure1":"2 oz",
+        "measure2":"1 oz",
+        "measure3":"1 oz",
+        "image":"https://www.thecocktaildb.com/images/media/drink/n0sx531504372951.jpg"
     }
     
 ]

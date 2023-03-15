@@ -31,6 +31,25 @@ function displayResults() {
     //     setProperty(data.properties)
     // };
 
+    // const fetchCocktail = () => {
+    //     const options = {
+    //       method: 'GET',
+    //       url: 'https://the-cocktail-db.p.rapidapi.com/search.php',
+    //       params: {s: `${cocktail}`},
+    //       headers: {
+    //         'X-RapidAPI-Key':,
+    //         'X-RapidAPI-Host': 'the-cocktail-db.p.rapidapi.com'
+    //       }
+    //     };
+        
+    //     axios.request(options).then(function (response) {
+    //         console.log("first drink:", response.data.drinks);
+    //         setProperty(response.data.drinks[0])
+    //     }).catch(function (error) {
+    //         console.error(error);
+    //     });
+    //   }
+
     useEffect(() => {
         //fetchPropertiesInfo();
         axios.get(`api/cocktails/${cocktail}`).then((res)=>{
@@ -38,32 +57,40 @@ function displayResults() {
         }).catch((err) =>{
             console.log(err);
         })
+        //fetchCocktail();
+
     }, [`${cocktail}`]);
 
     const handleSearch = (event) =>{
         setSearchInput(event.target.value);
-      }
-    
-      const search = () => {
-        router.push({
-          pathname: "/result",
-          query: {
-            cocktail: searchInput,
-          }
-        })
-      }
+    }
 
-    console.log("property:",property)
+    const search = () => {
+        router.push({
+            pathname: "/result",
+            query: {
+            cocktail: searchInput,
+            }
+        })
+    }
+
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+          search();
+        }
+    }
+
 
     return (
         <DefaultLayout>
             <div className='bg-white w-full border rounded-md border-gray p-4 shadow'>
                 <div>
-                    <input type="text" className="w-1/2 mb-4 pl-4 bg-white  border border-gray text-gray text-md rounded-xl p-2" placeholder='Search here' onChange={handleSearch} value={searchInput} />
+                    <input type="text" className="w-1/2 mb-4 pl-4 bg-white  border border-gray text-gray text-md rounded-xl p-2" placeholder='Search here' onChange={handleSearch} value={searchInput} onKeyDown={handleKeyDown}/>
                     <button onClick={search} className=' ml-4 bg-red text-white rounded-lg p-2'>Search</button>
                 </div>
                 <div className=''>
-                    <Card title={property.title} description={property.description}/>
+                    {/* <Card title={property.strDrink} description={property.strInstructions}/> */}
+                    <Card title={property.title} description={property.description} cocktail={property}/>
                 </div>
             </div>
         </DefaultLayout>
